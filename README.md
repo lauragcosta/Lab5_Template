@@ -57,23 +57,25 @@ Consulte o seu README se tiver dúvidas sobre a sua utilização.
 9. Implemente a função `FortniteItem* fortniteFindFreeItems(FortniteItem arr[], int arrLength, int *itemSize)` que:
 
 	- Devolve por retorno um array alocado dinamicamente com uma cópia dos items gratuitos na loja, i.e., onde o campo `vbucks == 0`.
-	- Devolve por referência (`int \*itemSize`)o número de items gratuitos e, consequentemente, o tamanho do array alocado/devolvido.
+	- Devolve por referência (`int *itemSize`)o número de items gratuitos e, consequentemente, o tamanho do array alocado/devolvido.
 
 10. Adicione no `main` o código necessário para "comprar" automaticamente todos os items gratuitos; **o array a ser modificado é o array criado no Nível 3**. Teste o programa.
 
-11. Implemente e teste a função `FortniteItem* fortniteFindRarityItems(FortniteItem arr[], int arrLength, const char* rarity, int *itemSize)` que:
+11. Implemente e teste a função `FortniteItem* fortniteFindRarityItems(FortniteItem arr[], int arrLength, const char *rarity, int *itemSize)` que:
 
-	- Devolve por retorno um array alocado dinamicamente com uma cópia dos items cuja raridade é a solicitado;
-	- Devolve por referência (`int \*itemSize`)o número de items gratuitos e, consequentemente, o tamanho do array alocado/devolvido.
+	- Devolve por retorno um array alocado dinamicamente com uma cópia dos items cuja raridade é a solicitada ("string" `rarity` - `const` significa que não pode ser alterada dentro da função);
+	- Devolve por referência (`int *itemSize`)o número de items gratuitos e, consequentemente, o tamanho do array alocado/devolvido.
 	- :bulb: É uma simples adaptação da função `fortniteFindFreeItems`!
 
 ### Nível 5 (Duração estimada: < 30min)
 
 12. Implemente a função `bool fortniteAddNewItem(FortniteItem item, FortniteItem *arr[], int *pArrLength)` que adiciona um novo item `item` ao array `arr`. Note que:
 
-	- O valor (`FortniteItem \*arr[]`) passado por referência contém o endereço da variável que contém o endereço do array; só assim poderá ser alterado dentro da função, caso o `realloc` altere o endereço do bloco;
+	- O valor passado por referência (`FortniteItem *arr[]`)  contém o endereço da variável que, por sua vez, contém o endereço do array; só assim poderá ser alterado dentro da função, caso o `realloc` altere o endereço do bloco;
 
-	- O valor (`int \*pArrLength`) passado por referência contém o tamanho atual da loja e será incrementado se o item for adicionado com sucesso; terá de aumentar dinamicamente o array para esse efeito!
+		- A invocação desta função será feita, e.g., `bool res = fortniteAddNewItem(<item>, &shop, &shopSize)` - note a passagem do endereço do array (`&shop`).
+
+	- O valor passado por referência (`int *pArrLength`)  contém o tamanho atual da loja e será incrementado se o item for adicionado com sucesso; terá de aumentar dinamicamente o array para esse efeito!
 
 	- Devolve `true` se o item for adicionado com sucesso, `false` se não for possível alocar mais memória.
 
