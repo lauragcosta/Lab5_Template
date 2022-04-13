@@ -27,15 +27,10 @@ void fortniteItemPrint(PtFortniteItem item);
  */
 int fortniteLoadShop(FortniteItem arr[], int howMany);
 
-//---------------
+bool fortniteItemBuy(const char* name, FortniteItem arr[], int arrLength);
 
-//Nível 1
-//bool fortniteItemBuy(const char* name, FortniteItem arr[], int arrLength);
+PtFortniteItem fortniteItemSearch(const char* name, FortniteItem arr[], int arrLength);
 
-//Nível 2
-//PtFortniteItem fortniteItemSearch(const char* name, FortniteItem arr[], int arrLength);
-
-//Nível 3
 //FortniteItem* fortniteArrayCopy(FortniteItem arr[], int arrLength);
 
 //Nível 4

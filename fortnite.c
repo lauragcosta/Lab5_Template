@@ -27,7 +27,6 @@ void fortniteArrayPrint(FortniteItem arr[], int arrLength) {
 int fortniteLoadShop(FortniteItem arr[], int howMany) {
     FILE* stream = fopen("fortniteshop.csv", "r");
 
-    /* If file does not exist, abort */ 
     if(stream == NULL) return -1;
 
     int count = 0;
@@ -38,7 +37,6 @@ int fortniteLoadShop(FortniteItem arr[], int howMany) {
 
         char* tmp = strdup(line);
         
-        /* creates tokens[3] array, with tokens read from the file line */
         char** tokens = splitString(tmp, 3, ",");
         
         int vbucks = atoi(tokens[2]);
@@ -53,4 +51,30 @@ int fortniteLoadShop(FortniteItem arr[], int howMany) {
     return count;
 }
 
-//--------------------
+bool fortniteItemBuy(const char* name, FortniteItem arr[], int arrLength)
+{
+    PtFortniteItem item = fortniteItemSearch(name, arr, arrLength);
+    if(item != NULL)
+    {
+        item->owned = true;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+PtFortniteItem fortniteItemSearch(const char* name, FortniteItem arr[], int arrLength)
+{
+    for(int i=0; i<arrLength; i++)
+    {
+        if(strcasecmp(name,arr[i].name) == 0)
+        {
+            return &arr[i];
+        }
+    }
+    return NULL;
+}
+
+
