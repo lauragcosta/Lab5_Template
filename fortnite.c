@@ -88,3 +88,35 @@ FortniteItem* fortniteArrayCopy(FortniteItem arr[], int arrLength)
     return arrCopy;
 }
 
+FortniteItem* fortniteFindFreeItems(FortniteItem arr[], int arrLength, int *itemSize)
+{
+    FortniteItem* freeItems = NULL;
+    int count = 0;
+    for(int i=0; i<arrLength; i++)
+    {
+        if(arr[i].vbucks == 0)
+        {
+            freeItems = (FortniteItem*)realloc(freeItems, sizeof(FortniteItem) * (count+1));
+            freeItems[count++] = arr[i];
+        }
+    }
+    *itemSize = count;
+    return freeItems;
+}
+
+FortniteItem* fortniteFindRarityItems(FortniteItem arr[], int arrLength, const char* rarity, int *itemSize)
+{
+    FortniteItem* rarityItems = NULL;
+    int count = 0;
+    for(int i=0; i<arrLength; i++)
+    {
+        if(strcasecmp(arr[i].rarity, rarity) == 0)
+        {
+            rarityItems = (FortniteItem*)realloc(rarityItems, sizeof(FortniteItem) * (count+1));
+            rarityItems[count++] = arr[i];
+        }
+    }
+    *itemSize = count;
+    return rarityItems;
+}
+

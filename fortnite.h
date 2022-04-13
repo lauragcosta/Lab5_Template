@@ -27,16 +27,18 @@ void fortniteItemPrint(PtFortniteItem item);
  */
 int fortniteLoadShop(FortniteItem arr[], int howMany);
 
+//NIVEL 1
 bool fortniteItemBuy(const char* name, FortniteItem arr[], int arrLength);
 
+//NIVEL 2
 PtFortniteItem fortniteItemSearch(const char* name, FortniteItem arr[], int arrLength);
 
+//NIVEL 3
 FortniteItem* fortniteArrayCopy(FortniteItem arr[], int arrLength);
 
 //Nível 4
-//FortniteItem* fortniteFindFreeItems(FortniteItem arr[], int arrLength, int *itemSize);
-//adaptação - critério de seleção
-//FortniteItem* fortniteFindRarityItems(FortniteItem arr[], int arrLength, const char* rarity, int *itemSize);
+FortniteItem* fortniteFindFreeItems(FortniteItem arr[], int arrLength, int *itemSize);
+FortniteItem* fortniteFindRarityItems(FortniteItem arr[], int arrLength, const char* rarity, int *itemSize);
 
 
 //Nível 5
