@@ -31,7 +31,7 @@ bool fortniteItemBuy(const char* name, FortniteItem arr[], int arrLength);
 
 PtFortniteItem fortniteItemSearch(const char* name, FortniteItem arr[], int arrLength);
 
-//FortniteItem* fortniteArrayCopy(FortniteItem arr[], int arrLength);
+FortniteItem* fortniteArrayCopy(FortniteItem arr[], int arrLength);
 
 //Nível 4
 //FortniteItem* fortniteFindFreeItems(FortniteItem arr[], int arrLength, int *itemSize);

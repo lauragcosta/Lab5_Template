@@ -22,6 +22,7 @@ void fortniteArrayPrint(FortniteItem arr[], int arrLength) {
     for (int i = 0; i < arrLength; i++) {
         fortniteItemPrint(&arr[i]);
     }    
+    printf("\n");
 }
 
 int fortniteLoadShop(FortniteItem arr[], int howMany) {
@@ -77,4 +78,13 @@ PtFortniteItem fortniteItemSearch(const char* name, FortniteItem arr[], int arrL
     return NULL;
 }
 
+FortniteItem* fortniteArrayCopy(FortniteItem arr[], int arrLength)
+{
+    FortniteItem* arrCopy = (FortniteItem*) malloc(sizeof(FortniteItem) * arrLength);
+    for(int i=0; i<arrLength; i++)
+    {
+        arrCopy[i] = arr[i];
+    }   
+    return arrCopy;
+}
 
