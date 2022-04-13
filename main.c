@@ -12,7 +12,8 @@ int main()
     fortniteArrayPrint(shop, shopSize);
 
     //NIVEL 1 & 2
-    /*char name[40];
+    /*
+    char name[40];
     printf("\nItem you'd like to buy: \n");
     readString(name, sizeof(name)-1);
     bool success = fortniteItemBuy(name, shop, shopSize);
@@ -24,8 +25,8 @@ int main()
     else
     {
         printf("\nItem not found\n");
-    }*/
-
+    }
+    */
     //NIVEL 3
     FortniteItem* shopCopy = fortniteArrayCopy(shop, shopSize);
     if(shopCopy != NULL)
@@ -36,9 +37,10 @@ int main()
     {
         printf("\nShop copy failed (no memory)\n");
     }
-    free(shopCopy);
+    //free(shopCopy);
 
     //NIVEL 4
+    /*
     int freeCount;
     FortniteItem* freeItems = fortniteFindFreeItems(shop, shopSize, &freeCount);
     if(freeItems != NULL)
@@ -56,7 +58,7 @@ int main()
         fortniteItemBuy(freeItems[i].name, shopCopy, shopSize);
     }
     fortniteArrayPrint(shopCopy, shopSize);
-
+    //---------------------------------------------------------------------------------------
     int rarityCount;
     FortniteItem* items = fortniteFindRarityItems(shopCopy, shopSize, "rare", &rarityCount);
     if(items != NULL)
@@ -68,6 +70,21 @@ int main()
     {
         printf("\nOperation failed (no memory)\n");
     }
+    */
 
+    //NIVEL 5
+    printf("\nAdding new item...\n");
+    FortniteItem newItem = fortniteItemCreate("Doctor Strange", "Epic", 1500);
+    bool success = fortniteAddNewItem(newItem, &shopCopy, &shopSize);
+    if(success)
+    {
+        fortniteArrayPrint(shopCopy, shopSize);
+    }
+    else
+    {
+        printf("\nCan't add new item\n");
+    }
+    free(shopCopy);
+    
     return EXIT_SUCCESS;
 }

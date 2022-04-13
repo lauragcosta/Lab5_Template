@@ -14,7 +14,7 @@ FortniteItem fortniteItemCreate(char *name, char *rarity, int vbucks) {
 }
 
 void fortniteItemPrint(PtFortniteItem item) {
-    printf("%-30s | %-20s | %d | %s\n", item->name, item->rarity, 
+    printf("%-30s | %-20s | %4d | %s\n", item->name, item->rarity, 
             item->vbucks, (item->owned) ? "Owned" : "Buy");
 }
 
@@ -119,4 +119,26 @@ FortniteItem* fortniteFindRarityItems(FortniteItem arr[], int arrLength, const c
     *itemSize = count;
     return rarityItems;
 }
+
+bool fortniteAddNewItem(FortniteItem item, FortniteItem *arr[], int *pArrLength)
+{
+    PtFortniteItem find = fortniteItemSearch(item.name, *arr, *pArrLength);
+    if(find != NULL)
+    {
+        return false;
+    }
+    int newLength = *pArrLength + 1;
+
+    FortniteItem* newArray = (PtFortniteItem)realloc(*arr, newLength * sizeof(FortniteItem));
+    
+    if(newArray == NULL)
+    {
+        return false;
+    }
+    newArray[newLength - 1] = item;
+    *arr = newArray;
+    *pArrLength = newLength;
+    return true;
+}
+
 

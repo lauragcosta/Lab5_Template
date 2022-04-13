@@ -42,7 +42,7 @@ FortniteItem* fortniteFindRarityItems(FortniteItem arr[], int arrLength, const c
 
 
 //Nível 5
-//bool fortniteAddNewItem(FortniteItem item, FortniteItem *arr[], int *pArrLength);
+bool fortniteAddNewItem(FortniteItem item, FortniteItem *arr[], int *pArrLength);
 
 
 
